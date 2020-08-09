@@ -16,11 +16,15 @@ Project with React.js using hooks and style components
 - Yarn
 - Html
 - CSS
-- Materialize
 - Google fonts
-- Emotion
+- [Materialize](https://materializecss.com/getting-started.html)   
+- [Emotion](https://www.netlify.com/)
 - [Netlify](https://www.netlify.com/)
 
+## ADD emotion
+```
+$ yarn add @emotion/styled @emotion/core 
+```
 
 ## Git repo
 The url to repository and deployed project:
