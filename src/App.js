@@ -1,10 +1,23 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const Container = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  @media (min-width: 992px){
+    display: grid:
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <h1>criptocoins</h1>
-    </div>
+    <Container>
+      <div>
+        <div></div>
+      </div>
+    </Container>
   );
 }
 
