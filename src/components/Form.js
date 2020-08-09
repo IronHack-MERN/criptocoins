@@ -1,35 +1,42 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import useCoin from '../hooks/useCoin';
+import React from "react";
+import styled from "@emotion/styled";
+import useCoin from "../hooks/useCoin";
 
 const Button = styled.input`
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 10px;
-    background-color: #66a2fe;
-    border: none;
-    width: 100%;
-    border-radius: 10px;
-    color: #FFF;
-    transition: background-color .3s ease;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #66a2fe;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  transition: background-color 0.3s ease;
 
-    &:hover{
-        background-color: #326AC0;
-        cursor: pointer;
-    }
+  &:hover {
+    background-color: #326ac0;
+    cursor: pointer;
+  }
 `;
 
 const Form = () => {
-    return ( 
-        <form>
-
-            <Button
-                type='submit'
-                value='Calculate'
-            />
-        </form>
-     );
-}
  
+  const COINS = [ 
+    { code: 'USD', name: 'American Dollar' },
+    { code: 'MXN', name: 'Mexican Peso' },
+    { code: 'Eur', name: 'Euro' },
+    { code: 'GBP', name: 'Pound Sterling' },
+  ];
+
+  const [ state, Select ] = useCoin('Select coin', '', COINS);
+
+  return (
+    <form>
+      <Select />
+      <Button type="submit" value="Calculate" />
+    </form>
+  );
+};
+
 export default Form;

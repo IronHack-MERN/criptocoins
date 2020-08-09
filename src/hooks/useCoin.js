@@ -1,22 +1,24 @@
 import React, { Fragment, useState } from "react";
 
-const useCoin = () => {
-
+const useCoin = (label, initialState, options) => {
   // State of custom hook
-  const [state, setState] = useState('');
+  const [state, setState] = useState(initialState);
 
   const Select = () => (
     <Fragment>
-      <label>Coin</label>
+      <label>{label}</label>
       <select>
-        <option value='ES'>
-          Euro
-        </option>
+        <option value="ES">Select coin</option>
+        {options.map((option) => (
+          <option key={option.code} value={option.code}>
+            {option.name}
+          </option>
+        ))}
       </select>
     </Fragment>
   );
 
-  return [state, select, setState];
+  return [state, Select, setState];
 };
 
 export default useCoin;
