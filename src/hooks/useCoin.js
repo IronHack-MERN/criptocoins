@@ -7,7 +7,10 @@ const useCoin = (label, initialState, options) => {
   const Select = () => (
     <Fragment>
       <label>{label}</label>
-      <select>
+      <select
+        onChange={ e => setState(e.target.value)}
+        value={state}
+      >
         <option value="ES">Select coin</option>
         {options.map((option) => (
           <option key={option.code} value={option.code}>
