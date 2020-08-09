@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import image from './criptocoins.png';
+import Form from './components/Form';
 
 const Container = styled.div`
   max-width: 900px;
@@ -48,6 +49,7 @@ function App() {
         <Heading>
           Instant coin quote
         </Heading>
+        <Form/>
       </div>
     </Container>
   );
