@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import useCoin from '../hooks/useCoin';
 
 const Button = styled.input`
     margin-top: 20px;
