@@ -15,4 +15,6 @@ class CriptocoinsService {
   }
 }
 
-const CriptocoinsService = new CriptocoinsService();
+const criptocoinsService = new CriptocoinsService();
+
+export default criptocoinsService;
