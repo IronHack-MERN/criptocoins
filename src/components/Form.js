@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import useCoin from "../hooks/useCoin";
 import useCriptocoin from "../hooks/useCriptocoin";
