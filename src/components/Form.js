@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import useCoin from "../hooks/useCoin";
+import useCriptocoin from "../hooks/useCriptocoin";
 
 const Button = styled.input`
   margin-top: 20px;
@@ -29,11 +30,13 @@ const Form = () => {
     { code: 'GBP', name: 'Pound Sterling' },
   ];
 
-  const [ state, Select ] = useCoin('Select coin', '', COINS);
+  const [ state, SelectCoin ] = useCoin('Select coin', '', COINS);
+  const [ criptocoin, SelectCriptocoin ] = useCriptocoin('Select criptocoin', '');
 
   return (
     <form>
-      <Select />
+      <SelectCoin />
+      <SelectCriptocoin/>
       <Button type="submit" value="Calculate" />
     </form>
   );

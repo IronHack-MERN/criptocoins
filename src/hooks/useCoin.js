@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Label = styled.label`
     font-family: 'Bebas Neue', cursive;
@@ -13,7 +13,7 @@ const Label = styled.label`
 
 const Select = styled.select`
     width: 100%;
-    display: block;
+    display:block;
     padding: 1rem;
     -webkit-appearance: none;
     border-radius: 10px;
@@ -22,13 +22,13 @@ const Select = styled.select`
 `;
 
 const useCoin = (label, initialState, options) => {
-  // State of custom hook
+
   const [state, setState] = useState(initialState);
 
-  const Select = () => (
+  const SelectCoin = () => (
     <Fragment>
-      <label>{label}</label>
-      <select
+      <Label>{label}</Label>
+      <Select
         onChange={ e => setState(e.target.value)}
         value={state}
       >
@@ -38,11 +38,11 @@ const useCoin = (label, initialState, options) => {
             {option.name}
           </option>
         ))}
-      </select>
+      </Select>
     </Fragment>
   );
 
-  return [state, Select, setState];
+  return [state, SelectCoin, setState];
 };
 
 export default useCoin;
