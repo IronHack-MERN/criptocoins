@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "@emotion/styled";
 import image from './criptocoins.png';
 import Form from './components/Form';
@@ -37,6 +37,10 @@ const Heading = styled.h1`
 `;
 
 function App() {
+
+  const [ coin, setCoin ] = useState('');
+  const [ criptocoin, setCriptocoin ] = useState('');
+
   return (
     <Container>
       <div>
@@ -49,7 +53,10 @@ function App() {
         <Heading>
           Instant coin quote
         </Heading>
-        <Form/>
+        <Form
+          setCoin={setCoin}
+          setCriptocoin={setCriptocoin}
+        />
       </div>
     </Container>
   );
