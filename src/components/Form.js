@@ -23,7 +23,7 @@ const Button = styled.input`
   }
 `;
 
-const Form = () => {
+const Form = ( { setCoin, setCriptocoin }) => {
 
   const [ listCriptocoins, setListCriptocoins ] = useState([]);
   const [ error, setError ] = useState(false);
