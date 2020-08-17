@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import useCoin from "../hooks/useCoin";
 import useCriptocoin from "../hooks/useCriptocoin";
@@ -23,8 +23,10 @@ const Button = styled.input`
 `;
 
 const Form = () => {
+
+  const [ listCriptocoins, setListCriptocoins ] = useState([]);
  
-  const COINS = [ 
+  const COINS = [
     { code: 'USD', name: 'American Dollar' },
     { code: 'MXN', name: 'Mexican Peso' },
     { code: 'Eur', name: 'Euro' },
@@ -32,19 +34,20 @@ const Form = () => {
   ];
 
   const [ state, SelectCoin ] = useCoin('Select coin', '', COINS);
-  const [ criptocoin, SelectCriptocoin ] = useCriptocoin('Select criptocoin', '');
+  const [ criptocoin, SelectCriptocoin ] = useCriptocoin('Select criptocoin', '', listCriptocoins);
 
   async function getData(){
     try {
       const result = await criptocoinsService.consultAPI();
       console.log("***** CRIPTOCOINS FROM API ********", result.Data);
+      setListCriptocoins(result.Data);
     } catch (error) {
       console.log('Not connection possible!!!');
     }
   }
 
   useEffect( () =>  {
-      getData();
+    getData();
   }, []);
 
   return (
