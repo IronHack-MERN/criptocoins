@@ -42,7 +42,6 @@ const useCriptocoin = (label, initialState, options) => {
     </Fragment>
   );
 
-  // Retornar state, interfaz y fn que modifica el state
   return [state, SelectCripto];
 };
 

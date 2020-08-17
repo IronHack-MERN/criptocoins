@@ -25,6 +25,7 @@ const Button = styled.input`
 const Form = () => {
 
   const [ listCriptocoins, setListCriptocoins ] = useState([]);
+  const [ error, setError ] = useState(false);
  
   const COINS = [
     { code: 'USD', name: 'American Dollar' },
@@ -33,13 +34,12 @@ const Form = () => {
     { code: 'GBP', name: 'Pound Sterling' },
   ];
 
-  const [ state, SelectCoin ] = useCoin('Select coin', '', COINS);
+  const [ coin, SelectCoin ] = useCoin('Select coin', '', COINS);
   const [ criptocoin, SelectCriptocoin ] = useCriptocoin('Select criptocoin', '', listCriptocoins);
 
   async function getData(){
     try {
       const result = await criptocoinsService.consultAPI();
-      console.log("***** CRIPTOCOINS FROM API ********", result.Data);
       setListCriptocoins(result.Data);
     } catch (error) {
       console.log('Not connection possible!!!');
@@ -50,8 +50,22 @@ const Form = () => {
     getData();
   }, []);
 
+  const quoteCurrency = e => {
+    e.preventDefault();
+
+    if( coin === '' || criptocoin === '' ){
+      setError(true);
+        return;
+    } else{
+      setError(false);
+    }
+  }
+
   return (
-    <form>
+    <form
+      onSubmit={ quoteCurrency }
+    >
+      {error ? 'You hava an error': null}
       <SelectCoin />
       <SelectCriptocoin/>
       <Button type="submit" value="Calculate" />
