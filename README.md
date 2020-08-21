@@ -6,7 +6,7 @@ Project with React.js using hooks and style components
 
 
 ## Demo
-![Landing demo](./src/demo.png)
+https://criptocoins.netlify.app/
 
 
 ## Technology Stack
