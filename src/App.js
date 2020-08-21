@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import image from './criptocoins.png';
 import Form from './components/Form';
 import criptocoinsService from './services/criptocoinsService';
+import Quote from './components/Quote';
 
 const Container = styled.div`
   max-width: 900px;
@@ -45,9 +46,9 @@ function App() {
   async function getData(){
     try {
       const result = await criptocoinsService.getFullData(coin, criptocoin);
-      console.log("nueva consulta a bases de datos", result.DISPLAY[criptocoin][coin]);
+      setResult(result.DISPLAY[criptocoin][coin]);
     } catch (error) {
-      setResult('Not connection possible!!!');
+      console.log('Not connection possible!!!');
     }
   }
 
@@ -74,6 +75,9 @@ function App() {
         <Form
           setCoin={setCoin}
           setCriptocoin={setCriptocoin}
+        />
+        <Quote
+          result = {result}
         />
       </div>
     </Container>
