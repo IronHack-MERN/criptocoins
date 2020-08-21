@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "@emotion/styled";
 import image from './criptocoins.png';
 import Form from './components/Form';
+import criptocoinsService from './services/criptocoinsService';
 
 const Container = styled.div`
   max-width: 900px;
@@ -37,9 +38,25 @@ const Heading = styled.h1`
 `;
 
 function App() {
-
   const [ coin, setCoin ] = useState('');
   const [ criptocoin, setCriptocoin ] = useState('');
+
+  async function getData(){
+    try {
+      const result = await criptocoinsService.getFullData(coin, criptocoin);
+      console.log("nueva consulta a bases de datos", result.DISPLAY[criptocoin][coin]);
+    } catch (error) {
+      console.log('Not connection possible!!!');
+    }
+  }
+
+  useEffect( () => {
+    if(coin === ''){
+      return;
+    }
+
+    getData();
+  }, [coin, criptocoin])
 
   return (
     <Container>

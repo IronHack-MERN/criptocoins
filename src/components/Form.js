@@ -59,6 +59,8 @@ const Form = ( { setCoin, setCriptocoin }) => {
         return;
     } else{
       setError(false);
+      setCoin(coin);
+      setCriptocoin(criptocoin);
     }
   }
 
