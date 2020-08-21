@@ -45,22 +45,21 @@ function App() {
   const [result, setResult] = useState({});
   const [loading, setLoading] = useState(false);
 
-  async function getData() {
-    try {
-      const result = await criptocoinsService.getFullData(coin, criptocoin);
-
-      setLoading(true);
-
-      setTimeout(() => {
-        setLoading(false);
-        setResult(result.DISPLAY[criptocoin][coin]);
-      }, 3000);
-    } catch (error) {
-      console.log("Not connection possible!!!");
-    }
-  }
-
   useEffect(() => {
+    async function getData() {
+      try {
+        const result = await criptocoinsService.getFullData(coin, criptocoin);
+  
+        setLoading(true);
+  
+        setTimeout(() => {
+          setLoading(false);
+          setResult(result.DISPLAY[criptocoin][coin]);
+        }, 3000);
+      } catch (error) {
+        console.log("Not connection possible!!!");
+      }
+    }
     if (coin === "") {
       return;
     }
