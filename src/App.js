@@ -40,13 +40,14 @@ const Heading = styled.h1`
 function App() {
   const [ coin, setCoin ] = useState('');
   const [ criptocoin, setCriptocoin ] = useState('');
+  const [ result, setResult ] = useState({});
 
   async function getData(){
     try {
       const result = await criptocoinsService.getFullData(coin, criptocoin);
       console.log("nueva consulta a bases de datos", result.DISPLAY[criptocoin][coin]);
     } catch (error) {
-      console.log('Not connection possible!!!');
+      setResult('Not connection possible!!!');
     }
   }
 
