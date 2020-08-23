@@ -17,6 +17,7 @@ https://criptocoins.netlify.app/
 - Html
 - CSS
 - Google fonts
+- [CryptoCompare API](https://min-api.cryptocompare.com/)
 - [Materialize](https://materializecss.com/getting-started.html)   
 - [Emotion](https://www.netlify.com/)
 - [Netlify](https://www.netlify.com/)
