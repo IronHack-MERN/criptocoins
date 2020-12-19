@@ -1,4 +1,4 @@
-# criptocoins
+# Criptocoins project
 
 
 ## Description
